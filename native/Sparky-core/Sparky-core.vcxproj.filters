@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="sp">
+      <UniqueIdentifier>{1fcee557-0bc2-4d05-bba6-9f2595ed765a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\audio">
+      <UniqueIdentifier>{54ecd7b8-7e95-4776-8c0b-a1ce5dcd7bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\embedded">
+      <UniqueIdentifier>{4f2b3065-02bc-43f2-a152-b9c32a9f9d76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\embedded\files">
+      <UniqueIdentifier>{879fc9f3-d8d7-4685-9ebc-d1d3fb478eb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\graphics">
+      <UniqueIdentifier>{c9e9f25f-b4fd-4949-803a-82dd774cf9d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\maths">
+      <UniqueIdentifier>{78a415a0-0a37-4f92-b336-9f277f70a832}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\platform">
+      <UniqueIdentifier>{af731d24-993c-42a2-958c-3c30bf7b7477}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\platform\win32">
+      <UniqueIdentifier>{4a166c17-e7e3-4bc9-9617-39ff33e9ece1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\app">
+      <UniqueIdentifier>{b0ed385a-3cff-4157-a9e0-3bed4d1f3cd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\utils">
+      <UniqueIdentifier>{67569db1-5f00-4f44-a9a5-1dd9fffa251d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\entity">
+      <UniqueIdentifier>{d44bd60c-5aa4-4774-b35d-3e3451847a8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\entity\component">
+      <UniqueIdentifier>{6bbb3663-d268-4111-a476-808734cb27eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\events">
+      <UniqueIdentifier>{f45dc5f4-2e26-458b-a4d0-0baa236a48a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\graphics\ShaderFactory">
+      <UniqueIdentifier>{bbf7d1bc-4bdb-4634-9ec6-0173ba64c92f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\graphics\API">
+      <UniqueIdentifier>{a9f1d2b4-20f1-49cb-b030-fa3277e6dc62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\platform\posix">
+      <UniqueIdentifier>{49090165-a900-4281-ad83-5ed37e094e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\graphics\ShaderFactory\Shaders">
+      <UniqueIdentifier>{ef09e5cd-002c-4df6-9d25-72c1738a8586}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\graphics\ShaderFactory\Shaders\gles">
+      <UniqueIdentifier>{58659f55-dab6-4c52-80e6-faf0d518bf07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\debug">
+      <UniqueIdentifier>{4b83c31a-69f4-4b45-b448-c3b61f9475d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sp\graphics\ui">
+      <UniqueIdentifier>{c298d8e5-9102-4126-a91d-fb8b67f81f1f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\sp\audio\Sound.cpp">
+      <Filter>sp\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\audio\SoundManager.cpp">
+      <Filter>sp\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\embedded\Embedded.cpp">
+      <Filter>sp\embedded</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\shaders\ShaderFactory.cpp">
+      <Filter>sp\graphics\ShaderFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\BatchRenderer2D.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\Font.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\FontManager.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\Framebuffer.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\Label.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\MeshFactory.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\Sprite.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\Texture.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\TextureManager.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\maths\mat4.cpp">
+      <Filter>sp\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\maths\vec2.cpp">
+      <Filter>sp\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\maths\vec3.cpp">
+      <Filter>sp\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\maths\vec4.cpp">
+      <Filter>sp\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\utils\ImageLoad.cpp">
+      <Filter>sp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\sp.cpp">
+      <Filter>sp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\String.cpp">
+      <Filter>sp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\maths\AABB.cpp">
+      <Filter>sp\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\app\Application.cpp">
+      <Filter>sp\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\buffers\BufferLayout.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\camera\Camera.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\entity\component\Component.cpp">
+      <Filter>sp\entity\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\entity\Entity.cpp">
+      <Filter>sp\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\events\Event.cpp">
+      <Filter>sp\events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\ForwardRenderer.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\events\KeyEvent.cpp">
+      <Filter>sp\events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\layers\Layer2D.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\layers\Layer3D.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\layers\Group.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\layers\Layer.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\buffers\IndexBuffer.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\buffers\VertexArray.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\shaders\Shader.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\Material.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\camera\MayaCamera.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\Mesh.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\entity\component\MeshComponent.cpp">
+      <Filter>sp\entity\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\Model.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\events\MouseEvent.cpp">
+      <Filter>sp\events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\shaders\ShaderUniform.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\postfx\PostEffects.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\postfx\PostEffectsPass.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\maths\Quaternion.cpp">
+      <Filter>sp\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\Scene.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\entity\component\TransformComponent.cpp">
+      <Filter>sp\entity\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\platform\opengl\SPOpenGLBuffer.cpp">
+      <Filter>sp\graphics\API</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\platform\opengl\SPOpenGLError.cpp">
+      <Filter>sp\graphics\API</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\platform\opengl\SPOpenGLRenderAPI.cpp">
+      <Filter>sp\graphics\API</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\platform\posix\PosixTimer.cpp">
+      <Filter>sp\platform\posix</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\platform\windows\Win32Application.cpp">
+      <Filter>sp\platform\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\platform\windows\Win32Log.cpp">
+      <Filter>sp\platform\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\platform\windows\Win32Timer.cpp">
+      <Filter>sp\platform\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\platform\windows\Win32Window.cpp">
+      <Filter>sp\platform\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\app\Window.cpp">
+      <Filter>sp\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\debug\DebugLayer.cpp">
+      <Filter>sp\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\debug\DebugMenu.cpp">
+      <Filter>sp\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\app\Input.cpp">
+      <Filter>sp\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\platform\windows\Win32Input.cpp">
+      <Filter>sp\platform\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\maths\Rectangle.cpp">
+      <Filter>sp\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\debug\DebugMenuItem.cpp">
+      <Filter>sp\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\debug\DebugMenuSlider.cpp">
+      <Filter>sp\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\ui\Panel.cpp" />
+    <ClCompile Include="src\sp\graphics\ui\Widget.cpp" />
+    <ClCompile Include="src\sp\graphics\ui\Button.cpp" />
+    <ClCompile Include="src\sp\graphics\ui\Slider.cpp" />
+    <ClCompile Include="src\sp\graphics\Light.cpp" />
+    <ClCompile Include="src\sp\graphics\LightSetup.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\sp\app\Application.h">
+      <Filter>sp\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\Types.h">
+      <Filter>sp</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\Common.h">
+      <Filter>sp</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\sp.h">
+      <Filter>sp</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sparky.h">
+      <Filter>sp</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\String.h">
+      <Filter>sp</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\audio\Sound.h">
+      <Filter>sp\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\audio\SoundManager.h">
+      <Filter>sp\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\embedded\Embedded.h">
+      <Filter>sp\embedded</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\BatchRenderer2D.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Font.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\FontManager.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Framebuffer.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Label.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Mask.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\MeshFactory.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Renderable2D.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Renderer2D.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Sprite.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Texture.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\TextureManager.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\shaders\ShaderFactory.h">
+      <Filter>sp\graphics\ShaderFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\maths\mat4.h">
+      <Filter>sp\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\maths\maths.h">
+      <Filter>sp\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\maths\maths_func.h">
+      <Filter>sp\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\maths\tvec2.h">
+      <Filter>sp\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\maths\vec2.h">
+      <Filter>sp\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\maths\vec3.h">
+      <Filter>sp\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\maths\vec4.h">
+      <Filter>sp\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\utils\FileUtils.h">
+      <Filter>sp\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\utils\ImageLoad.h">
+      <Filter>sp\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\utils\Log.h">
+      <Filter>sp\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\utils\StringUtils.h">
+      <Filter>sp\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\utils\Timer.h">
+      <Filter>sp\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\maths\AABB.h">
+      <Filter>sp\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\buffers\Buffer.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\buffers\BufferLayout.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\camera\Camera.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\entity\component\Component.h">
+      <Filter>sp\entity\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\entity\component\Components.h">
+      <Filter>sp\entity\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\entity\Entity.h">
+      <Filter>sp\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\events\Event.h">
+      <Filter>sp\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\ForwardRenderer.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\events\IEventListener.h">
+      <Filter>sp\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\IRenderable.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\events\KeyEvent.h">
+      <Filter>sp\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\layers\Layer2D.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\layers\Layer3D.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\layers\Group.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\layers\Layer.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\buffers\VertexArray.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\buffers\IndexBuffer.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\shaders\Shader.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Material.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\camera\MayaCamera.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Mesh.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\entity\component\MeshComponent.h">
+      <Filter>sp\entity\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Model.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\events\MouseEvent.h">
+      <Filter>sp\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\shaders\ShaderUniform.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\postfx\PostEffects.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\postfx\PostEffectsPass.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\maths\Quaternion.h">
+      <Filter>sp\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Scene.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\Renderer3D.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\RenderCommand.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\entity\component\TransformComponent.h">
+      <Filter>sp\entity\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\SPRenderAPI.h">
+      <Filter>sp\graphics\API</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\debug\DebugLayer.h">
+      <Filter>sp\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\platform\opengl\SPOpenGLBuffer.h">
+      <Filter>sp\graphics\API</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\platform\opengl\SPOpenGLTypes.h">
+      <Filter>sp\graphics\API</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\app\Window.h">
+      <Filter>sp\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\debug\DebugMenu.h">
+      <Filter>sp\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\events\Events.h">
+      <Filter>sp\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\events\EventDispatcher.h">
+      <Filter>sp\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\app\Input.h">
+      <Filter>sp\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\maths\Rectangle.h">
+      <Filter>sp\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\debug\DebugMenuAction.h">
+      <Filter>sp\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\debug\DebugMenuItem.h">
+      <Filter>sp\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\debug\DebugMenuSlider.h">
+      <Filter>sp\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\ui\Button.h">
+      <Filter>sp\graphics\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\ui\Widget.h" />
+    <ClInclude Include="src\sp\graphics\ui\Panel.h" />
+    <ClInclude Include="src\sp\graphics\ui\Slider.h" />
+    <ClInclude Include="src\sp\graphics\Light.h" />
+    <ClInclude Include="src\sp\graphics\LightSetup.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="SparkyCore-TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\sp\embedded\files\SourceSansPro-Light.embed">
+      <Filter>sp\embedded\files</Filter>
+    </None>
+    <None Include="src\sp\graphics\shaders\default\BasicLight.shader">
+      <Filter>sp\graphics\ShaderFactory\Shaders</Filter>
+    </None>
+    <None Include="src\sp\graphics\shaders\default\Default.shader">
+      <Filter>sp\graphics\ShaderFactory\Shaders</Filter>
+    </None>
+    <None Include="src\sp\graphics\shaders\default\Simple.shader">
+      <Filter>sp\graphics\ShaderFactory\Shaders</Filter>
+    </None>
+    <None Include="src\sp\graphics\shaders\default\gles\Default.shader">
+      <Filter>sp\graphics\ShaderFactory\Shaders\gles</Filter>
+    </None>
+    <None Include="src\sp\graphics\shaders\default\gles\Simple.shader">
+      <Filter>sp\graphics\ShaderFactory\Shaders\gles</Filter>
+    </None>
+    <None Include="src\sp\platform\opengl\SPOpenGLRenderAPI.inl">
+      <Filter>sp\graphics\API</Filter>
+    </None>
+  </ItemGroup>
+</Project>
