@@ -39,6 +39,36 @@ JNIEXPORT jint JNICALL Java_sp_graphics_Renderer2D_native_1GetRenderTarget
 	return -1;
 }
 
+JNIEXPORT void JNICALL Java_sp_graphics_Renderer2D_native_1SetPostEffects
+(JNIEnv *env, jclass clz, jlong handler, jboolean enabled) {
+	Renderer2D* renderer = getHandle<Renderer2D>(handler);
+	renderer->SetPostEffects(enabled);
+}
+
+JNIEXPORT jboolean JNICALL Java_sp_graphics_Renderer2D_native_1GetPostEffects
+(JNIEnv *env, jclass clz, jlong handler) {
+	Renderer2D* renderer = getHandle<Renderer2D>(handler);
+	return renderer->GetPostEffects();
+}
+
+JNIEXPORT void JNICALL Java_sp_graphics_Renderer2D_native_1AddPostEffectsPass
+(JNIEnv *env, jclass clz, jlong handler, jlong passPointer) {
+	Renderer2D* renderer = getHandle<Renderer2D>(handler);
+	PostEffectsPass* pass = getHandle<PostEffectsPass>(passPointer);
+	renderer->AddPostEffectsPass(pass);
+}
+
+JNIEXPORT void JNICALL Java_sp_graphics_Renderer2D_native_1SetMask
+(JNIEnv *env, jclass clz, jlong handler, jlong texturePointer, jobject buffer) {
+	Renderer2D* renderer = getHandle<Renderer2D>(handler);
+	Texture* texture = getHandle<Texture>(texturePointer);
+	float* elements = (float*)getBufferData(env, buffer);
+	sp::maths::mat4 matrix(elements);
+	Mask* mask = new Mask(texture);
+	mask->transform = matrix;
+	renderer->SetMask(mask);
+}
+
 JNIEXPORT void JNICALL Java_sp_graphics_Renderer2D_native_1Begin
 (JNIEnv *env, jclass clz, jlong handler) {
 	Renderer2D* renderer = getHandle<Renderer2D>(handler);

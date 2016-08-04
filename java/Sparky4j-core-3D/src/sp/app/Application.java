@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.itay.wrapper.Wrapper;
+import com.itay.wrapper.Wrapper.CacheMode;
 
 import sp.event.Event;
 import sp.graphics.layers.Layer;
@@ -36,7 +37,7 @@ public abstract class Application {
 	}
 	
 	public void Init() {
-		PlaformInit();
+		PlatformInit();
 		
 		// TODO: Stuff in debug layer
 	}
@@ -87,6 +88,10 @@ public abstract class Application {
 		Init();
 		running = true;
 		//suspended = false;
+		
+		/* A little bit of optimization, this is only while the game is running */
+		Wrapper.cacheMode = CacheMode.ON_CALL;
+		
 		Run();
 	}
 	
@@ -100,6 +105,7 @@ public abstract class Application {
 	
 	public void Stop() {
 		running = false;
+		Wrapper.cacheMode = CacheMode.ON_CREATE;
 	}
 	
 	public int GetFPS() {
@@ -110,9 +116,9 @@ public abstract class Application {
 		return updatesPerSecond;
 	}
 	
-	private void PlaformInit() {
+	private void PlatformInit() {
 		window = new Window(name, width, height);
-		// TODO: set event callback
+		window.SetEventCallback(this::OnEvent);
 	}
 	
 	private void Run() {

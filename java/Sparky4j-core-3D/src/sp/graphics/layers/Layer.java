@@ -9,7 +9,7 @@ public class Layer {
 	protected boolean visible;
 	
 	public Layer() {
-		this.window = Window.getWindowClass();
+		this.window = Window.GetWindowClass();
 		this.visible = true;
 	}
 	

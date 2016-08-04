@@ -1,10 +1,14 @@
 package sp.app;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
 import com.itay.wrapper.NativeClass;
 import com.itay.wrapper.Wrapper.CacheMode;
 
 import sp.app.Input.InputManager;
-import sp.embed.Embedded;
+import sp.event.Event;
 import sp.graphics.Font;
 import sp.graphics.FontManager;
 import sp.graphics.TextureManager;
@@ -12,22 +16,34 @@ import sp.maths.Vector2;
 
 public class Window extends NativeClass {
 	
-	private static Window instance;
+	private static List<Window> handles = new ArrayList<>();
 	
-	// Maybe something better than this
-	public static Window getWindowClass() {
-		return instance;
+	public static Window GetWindowClass() { return GetWindowClass(0); }
+	public static Window GetWindowClass(long handle) {
+		if(handle == 0) {
+			if(handles.size() > 0) return handles.get(0);
+		}
+		
+		for(Window window : handles) {
+			if(window.getNativeHandler() == handle) return window;
+		}
+		
+		return null;
+	}
+	
+	public static void RegisterWindowClass(Window window) {
+		handles.add(window);
 	}
 	
 	private int width = -1, height = -1;
 	private InputManager inputManager = null;
 	
-	// TODO: Window event callback
+	private Consumer<Event> eventCallback;
 	
 	public Window(long handler) {
 		super(handler);
 		
-		instance = this;
+		RegisterWindowClass(this);
 		
 		if(cache == CacheMode.ON_CREATE) {
 			this.width = native_GetWidth(handler);
@@ -39,7 +55,7 @@ public class Window extends NativeClass {
 	public Window(String name, int width, int height) {
 		super(jniCreate(name, width, height));
 		
-		instance = this;
+		RegisterWindowClass(this);
 		
 		if(cache == CacheMode.ON_CREATE) {
 			this.width = width;
@@ -48,8 +64,8 @@ public class Window extends NativeClass {
 		}
 		
 		FontManager.SetScale(new Vector2(width / 32.0f, height / 18.0f));
-		FontManager.Add(new Font("SourceSansPro", Embedded.DEFAULT_FONT, 32));
-		
+		// TODO: Does not work from some reason... FontManager.Add(new Font("SourceSansPro", Embedded.DEFAULT_FONT, 32));
+		FontManager.Add(new Font("SourceSansPro", "res/SourceSansPro-Light.ttf", 32));
 	}
 	
 	private static native long jniCreate(String name, int width, int height);
@@ -105,13 +121,22 @@ public class Window extends NativeClass {
 		}
 	}
 	
+	public void SetEventCallback(Consumer<Event> eventCallback) {
+		this.eventCallback = eventCallback;
+	}
+	
+	public static void callEventCallback(long handle, Event event) {
+		Window window = GetWindowClass(handle);
+		//System.out.println(event.getType());
+		if(window == null) return;
+		window.eventCallback.accept(event);
+	}
+	
 	private static native void jniDelete(long handler);
 	protected void finalize() throws Throwable {
 		FontManager.Clean();
 		TextureManager.Clean();
 		jniDelete(handler);
 	}
-	
-	
 	
 }

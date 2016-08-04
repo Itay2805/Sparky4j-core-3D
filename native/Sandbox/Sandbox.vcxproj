@@ -99,6 +99,8 @@
     <ClInclude Include="app\Window.h" />
     <ClInclude Include="graphics\BatchRenderer2D.h" />
     <ClInclude Include="graphics\Font.h" />
+    <ClInclude Include="graphics\postfx\PostEffects.h" />
+    <ClInclude Include="graphics\postfx\PostEffectsPass.h" />
     <ClInclude Include="graphics\Renderable2D-impl.h" />
     <ClInclude Include="graphics\Renderable2D.h" />
     <ClInclude Include="graphics\Renderer2D.h" />
@@ -114,6 +116,8 @@
     <ClCompile Include="app\Window.cpp" />
     <ClCompile Include="graphics\BatchRenderer2D.cpp" />
     <ClCompile Include="graphics\Font.cpp" />
+    <ClCompile Include="graphics\postfx\PostEffects.cpp" />
+    <ClCompile Include="graphics\postfx\PostEffectsPass.cpp" />
     <ClCompile Include="graphics\Renderable2D-impl.cpp" />
     <ClCompile Include="graphics\Renderable2D.cpp" />
     <ClCompile Include="graphics\Renderer2D.cpp" />

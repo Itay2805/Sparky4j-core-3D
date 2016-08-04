@@ -1,12 +1,10 @@
 # Sparky4j-core-3D
-This is a work-in-progress implementation of the of the 3D in the engine (Up to commit 72)
+This is a work-in-progress (Currently on 2D implemented) implementation of the of the 3D in the engine (Up to commit 72)
 
 This uses the original code and some JNI(Java Native Interface) for using the Engine inside Java!
 
-After alot of optimization, The engine has about the same as the if you would to use the C++ engine! Of course I am still working to optimize the engine even more!
-
 # How to use
-Right now it crashes in KERNELBASE.dll from some reason...
+Currently there is no Sandbox project, But you can easily use the project with all the wrapper code inside or compile the wrapper to a Jar, link it to another project, and link the binaries to it.
 
 * Note that the DLLs are compiled for 32bit. So you might need to download 32bit JDK
 

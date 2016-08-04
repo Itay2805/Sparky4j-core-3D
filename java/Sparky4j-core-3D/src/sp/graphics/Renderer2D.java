@@ -8,6 +8,7 @@ import com.itay.wrapper.Memory;
 import com.itay.wrapper.NativeClass;
 import com.itay.wrapper.Wrapper.CacheMode;
 
+import sp.graphics.postfx.PostEffectsPass;
 import sp.maths.Matrix4;
 import sp.maths.Rectangle;
 import sp.maths.Vector2;
@@ -37,6 +38,9 @@ public abstract class Renderer2D extends NativeClass {
 			target = RenderTarget.SCREEN;
 			transformationStack.add(Matrix4.identity());
 			transformationBack = transformationStack.get(0);
+			
+			postEffectsEnabled = native_GetPostEffects(handler);
+			postEffectsEnabledCached = true;
 		}
 	}
 	
@@ -44,6 +48,8 @@ public abstract class Renderer2D extends NativeClass {
 	
 	private Stack<Matrix4> transformationStack = null;
 	private Matrix4 transformationBack = null;
+	private boolean postEffectsEnabled = false;
+	private boolean postEffectsEnabledCached = false;
 	
 	private static native void native_Push(long handler, Buffer buffer, boolean override);
 	public void Push(Matrix4 matrix) { Push(matrix, false); }
@@ -73,11 +79,13 @@ public abstract class Renderer2D extends NativeClass {
 		native_Pop(handler);
 	}
 	
+	// TODO: From some reason this is not actually changing the target... it is screen in the start but than it gets stuck in Buffer...
 	private static native void native_SetRenderTarget(long handler, int target);
 	public void SetRenderTarget(RenderTarget target) {
-		if(cache == CacheMode.ON_CREATE) {
+		if(cache != CacheMode.NEVER) {
 			this.target = target;
 		}
+
 		native_SetRenderTarget(handler, target.id);
 	}
 	
@@ -105,6 +113,44 @@ public abstract class Renderer2D extends NativeClass {
 					throw new IllegalArgumentException("Could not find RenderTarget ID: " + id);
 			}
 		}
+	}
+	
+	private static native void native_SetPostEffects(long handler, boolean enabled);
+	public void SetPostEffects(boolean enabled) {
+		native_SetPostEffects(handler, enabled);
+		
+		if(cache != CacheMode.NEVER) {
+			postEffectsEnabled = enabled;
+			postEffectsEnabledCached = true;
+		}
+	}
+	
+	private static native boolean native_GetPostEffects(long handler);
+	public boolean GetPostEffects() {
+		if(cache == CacheMode.ON_CREATE) {
+			return postEffectsEnabled;
+		}else if(cache == CacheMode.ON_CALL) {
+			if(!postEffectsEnabledCached) {
+				this.postEffectsEnabled = native_GetPostEffects(handler);
+				postEffectsEnabledCached = true;
+			}
+			return postEffectsEnabled;
+		}else {
+			return native_GetPostEffects(handler);
+		}
+	}
+	
+	private static native void native_AddPostEffectsPass(long handler, long pass);
+	public void AddPostEffectsPass(PostEffectsPass pass) {
+		native_AddPostEffectsPass(handler, pass.getNativeHandler());
+	}
+	
+	private static native void native_SetMask(long handler, long texture, ByteBuffer elements);
+	public void SetMask(Mask mask) {
+		ByteBuffer buffer = Memory.malloc(4 * 4 * Float.BYTES);
+		buffer.asFloatBuffer().put(mask.transform.elements);
+		native_SetMask(handler, mask.texture.getNativeHandler(), buffer);
+		Memory.free(buffer);
 	}
 	
 	public void Begin() { native_Begin(handler); }

@@ -7,7 +7,6 @@ import sp.maths.Vector2;
 public class Input {
 	
 	private static InputManager inputManager;
-	// TODO: think about this call back system
 	
 	public static boolean IsKeyPressed(int keycode) {
 		return inputManager.IsKeyPressed(keycode);

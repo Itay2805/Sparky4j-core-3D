@@ -46,8 +46,8 @@ public abstract class KeyEvent extends Event {
 	
 	public static class KeyReleasedEvent extends KeyEvent {
 		
-		protected KeyReleasedEvent(int button) {
-			super(button, GetStaticType());
+		public KeyReleasedEvent(int keycode) {
+			super(keycode, GetStaticType());
 		}
 		
 		public static Type GetStaticType() {

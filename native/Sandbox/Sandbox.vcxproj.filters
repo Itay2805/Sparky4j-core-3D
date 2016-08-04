@@ -54,6 +54,12 @@
     <ClInclude Include="graphics\Renderable2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="graphics\postfx\PostEffectsPass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\postfx\PostEffects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wrapper\memory.cpp">
@@ -87,6 +93,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="graphics\Renderable2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\postfx\PostEffectsPass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\postfx\PostEffects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

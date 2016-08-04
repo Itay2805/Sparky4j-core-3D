@@ -1,6 +1,6 @@
 package sp.event;
 
-import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class EventDispatcher {
 	
@@ -10,9 +10,11 @@ public class EventDispatcher {
 		this.event = event;
 	}
 	
-	// TODO: Work on this
-	public void Dispatch(Consumer<Event> func) {
-		func.accept(event);
+	@SuppressWarnings("unchecked")
+	public <T extends Event> void dispatch(Class<T> type, Predicate<T> func) {
+		if(event.getClass().equals(type)) {			
+			event.handled = func.test((T)event);
+		}
 	}
 	
 }

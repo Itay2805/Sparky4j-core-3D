@@ -44,7 +44,7 @@ public class Label extends Renderable2D {
 	}
 	
 	public void Submit(Renderer2D renderer) {
-		//renderer.DrawString(text, new Vector2(GetPosition()), font, GetColor());
+		renderer.DrawString(text, new Vector2(GetPosition()), font, GetColor());
 	}
 	
 	public void ValidateFont(String name) { ValidateFont(name, -1); }

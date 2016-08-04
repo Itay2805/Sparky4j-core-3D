@@ -5,6 +5,7 @@ import java.util.List;
 
 import sp.app.Window;
 import sp.graphics.BatchRenderer2D;
+import sp.graphics.Mask;
 import sp.graphics.Renderable2D;
 import sp.graphics.Renderer2D;
 import sp.graphics.shaders.Shader;
@@ -20,7 +21,7 @@ public class Layer2D extends Layer {
 	protected Matrix4 projectionMatrix;
 	
 	public Layer2D(Shader shader, Matrix4 projectionMatrix) {
-		this.renderer = new BatchRenderer2D(Window.getWindowClass().getWidth(), Window.getWindowClass().getHeight());
+		this.renderer = new BatchRenderer2D(Window.GetWindowClass().getWidth(), Window.GetWindowClass().getHeight());
 		this.shader = shader;
 		this.projectionMatrix = projectionMatrix;
 		
@@ -45,7 +46,9 @@ public class Layer2D extends Layer {
 	
 	public void OnInit(Renderer2D renderer, Shader shader) {}
 	
-	// TODO: Set mask
+	public void SetMask(Mask mask) {
+		renderer.SetMask(mask);
+	}
 	
 	public Renderable2D Add(Renderable2D renderable) {
 		renderables.add(renderable);

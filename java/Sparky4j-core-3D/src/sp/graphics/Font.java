@@ -52,7 +52,7 @@ public class Font extends NativeClass {
 	
 	public Font(String name, byte[] data, float size) {
 		super(jniCreate(bufferRef = Memory.malloc(data.length).put(data), data.length, size));
-		Memory.free(bufferRef); // TODO: Free the buffer in the native side (?)
+		Memory.free(bufferRef);
 		
 		this.name = name;
 		this.filename = "NULL";
