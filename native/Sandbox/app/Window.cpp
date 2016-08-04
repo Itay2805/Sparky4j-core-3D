@@ -4,10 +4,16 @@
 
 using namespace sp;
 
+static void test(events::Event& event) {
+	// TODO: Somehow find a way to set a consumer callback
+}
+
+
 JNIEXPORT jlong JNICALL Java_sp_app_Window_jniCreate
 (JNIEnv *env, jclass cls, jstring title, jint width, jint height) {
 	const char* titleChars = env->GetStringUTFChars(title, NULL);
 	Window* window = new Window(titleChars, width, height);
+	window->SetEventCallback(std::bind(&test, std::placeholders::_1));
 	env->ReleaseStringUTFChars(title, titleChars);
 	return getPointer(window);
 }

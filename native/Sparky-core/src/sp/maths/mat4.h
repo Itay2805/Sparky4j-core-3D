@@ -22,6 +22,7 @@ namespace sp { namespace maths {
 
 		mat4();
 		mat4(float diagonal);
+		mat4(float* elements);
 
 		static mat4 Identity();
 

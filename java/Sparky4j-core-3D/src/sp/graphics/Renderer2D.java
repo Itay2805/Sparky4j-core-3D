@@ -6,14 +6,14 @@ import java.util.Stack;
 
 import com.itay.wrapper.Memory;
 import com.itay.wrapper.NativeClass;
-import com.itay.wrapper.WrapperConfig.CacheMode;
+import com.itay.wrapper.Wrapper.CacheMode;
 
 import sp.maths.Matrix4;
 import sp.maths.Rectangle;
 import sp.maths.Vector2;
 import sp.utils.Log;
 
-public class Renderer2D extends NativeClass {
+public abstract class Renderer2D extends NativeClass {
 	
 	public enum RenderTarget{
 		
@@ -29,17 +29,6 @@ public class Renderer2D extends NativeClass {
 	public Renderer2D(long handler) {
 		super(handler);
 		
-		cache = CacheMode.NEVER;
-	}
-	
-	private RenderTarget target = null;
-	
-	private Stack<Matrix4> transformationStack = null;
-	private Matrix4 transformationBack = null;
-	
-	protected Renderer2D() {
-		super(jniCreate());
-		
 		if(cache != CacheMode.NEVER) {
 			transformationStack = new Stack<>();
 		}
@@ -51,8 +40,11 @@ public class Renderer2D extends NativeClass {
 		}
 	}
 	
-	private static native long jniCreate();
-
+	private RenderTarget target = null;
+	
+	private Stack<Matrix4> transformationStack = null;
+	private Matrix4 transformationBack = null;
+	
 	private static native void native_Push(long handler, Buffer buffer, boolean override);
 	public void Push(Matrix4 matrix) { Push(matrix, false); }
 	public void Push(Matrix4 matrix, boolean override) {
@@ -67,7 +59,7 @@ public class Renderer2D extends NativeClass {
 		ByteBuffer buffer = Memory.malloc(matrix.elements.length * Float.BYTES);
 		buffer.asFloatBuffer().put(matrix.elements);
 		native_Push(handler, buffer, override);
-		Memory.free(buffer); // TODO: Maybe free it on the native side (?)
+		Memory.free(buffer);
 	}
 	
 	private static native void native_Pop(long handler);
@@ -116,7 +108,7 @@ public class Renderer2D extends NativeClass {
 	}
 	
 	public void Begin() { native_Begin(handler); }
-	public void Submit(Renderable2D renderable) {}
+	public void Submit(Renderable2D renderable) { native_Submit(handler, renderable.getNativeHandler()); }
 	
 	public void DrawLine(float x0, float y0, float x1, float y1, float thickness, int color) { native_DrawLine(handler, x0, y0, x1, y1, thickness, color); }
 	public void DrawLine(float x0, float y0, float x1, float y1, float thickness) { DrawLine(x0, y0, x1, y1, thickness, 0xffffffff); }
@@ -132,7 +124,7 @@ public class Renderer2D extends NativeClass {
 	public void DrawRect(Rectangle rectangle, int color) { DrawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height, color);}
 	public void DrawRect(Rectangle rectangle) { DrawRect(rectangle, 0xffffffff);}
 	
-	public void DrawString(String text, Vector2 position, Font font, int color) { native_DrawString(handler, text, position, font.getNativeHandler(), color); }
+	public void DrawString(String text, Vector2 position, Font font, int color) { native_DrawString(handler, text, position.x, position.y, font.getNativeHandler(), color); }
 	public void DrawString(String text, Vector2 position, Font font) { DrawString(text, position, FontManager.Get(), 0xffffffff); }
 	public void DrawString(String text, Vector2 position) { DrawString(text, position, FontManager.Get()); }
 
@@ -151,7 +143,7 @@ public class Renderer2D extends NativeClass {
 	
 	private static native void native_DrawLine(long handler, float x0, float y0, float x1, float y1, float thickness, int color);
 	private static native void native_DrawRect(long handler, float x, float y, float width, float height, int color);
-	private static native void native_DrawString(long handler, String text, Vector2 position, long font, int color);
+	private static native void native_DrawString(long handler, String text, float x, float y, long font, int color);
 	
 	private static native void native_FillRect(long handler, float x, float y, float width, float height, int color);
 	

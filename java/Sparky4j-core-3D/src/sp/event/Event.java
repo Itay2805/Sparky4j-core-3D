@@ -29,7 +29,7 @@ public abstract class Event {
 		return type;
 	}
 	
-	public boolean isHandled() {
+	public boolean IsHandled() {
 		return handled;
 	}
 	

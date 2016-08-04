@@ -1,7 +1,7 @@
 package sp.graphics;
 
 import com.itay.wrapper.NativeClass;
-import com.itay.wrapper.WrapperConfig.CacheMode;
+import com.itay.wrapper.Wrapper.CacheMode;
 
 public class Texture extends NativeClass {
 	
@@ -68,7 +68,7 @@ public class Texture extends NativeClass {
 	}
 	
 	public Texture(String name, String filename) {
-		super(jniCreate(name, filename));
+		super(jniCreate(filename));
 		
 		this.name = name;
 		
@@ -92,7 +92,7 @@ public class Texture extends NativeClass {
 	}
 	
 	private static native long jniCreate(int width, int height, int bits);
-	private static native long jniCreate(String name, String filename);
+	private static native long jniCreate(String filename);
 	private static native long jniCreate(int id);
 	
 	private static native void native_Bind(long handler);

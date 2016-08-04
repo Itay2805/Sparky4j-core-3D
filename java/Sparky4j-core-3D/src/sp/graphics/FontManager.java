@@ -38,7 +38,7 @@ public class FontManager {
 			if(font.GetSize() == size)
 				return font;
 		}
-		// TODO: Create font from embedded data
+		
 		return null;		
 	}
 	

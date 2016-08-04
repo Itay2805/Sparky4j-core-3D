@@ -10,7 +10,8 @@ public class EventDispatcher {
 		this.event = event;
 	}
 	
-	void dispatch(Consumer<Event> func) {
+	// TODO: Work on this
+	public void Dispatch(Consumer<Event> func) {
 		func.accept(event);
 	}
 	

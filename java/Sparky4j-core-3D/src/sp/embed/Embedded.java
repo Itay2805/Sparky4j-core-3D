@@ -3,6 +3,8 @@ package sp.embed;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Embedded {
 	
@@ -10,7 +12,8 @@ public class Embedded {
 	
 	static {
 		try {
-			DEFAULT_FONT = readEmbeddedFile("/SourceSansPro-Light.ttf");
+			//DEFAULT_FONT = readEmbeddedFile("/SourceSansPro-Light.ttf");
+			DEFAULT_FONT = Files.readAllBytes(Paths.get("res/SourceSansPro-Light.ttf"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

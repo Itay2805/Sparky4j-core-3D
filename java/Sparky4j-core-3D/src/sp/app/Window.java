@@ -1,7 +1,7 @@
 package sp.app;
 
 import com.itay.wrapper.NativeClass;
-import com.itay.wrapper.WrapperConfig.CacheMode;
+import com.itay.wrapper.Wrapper.CacheMode;
 
 import sp.app.Input.InputManager;
 import sp.embed.Embedded;
@@ -12,6 +12,13 @@ import sp.maths.Vector2;
 
 public class Window extends NativeClass {
 	
+	private static Window instance;
+	
+	// Maybe something better than this
+	public static Window getWindowClass() {
+		return instance;
+	}
+	
 	private int width = -1, height = -1;
 	private InputManager inputManager = null;
 	
@@ -19,6 +26,8 @@ public class Window extends NativeClass {
 	
 	public Window(long handler) {
 		super(handler);
+		
+		instance = this;
 		
 		if(cache == CacheMode.ON_CREATE) {
 			this.width = native_GetWidth(handler);
@@ -28,7 +37,9 @@ public class Window extends NativeClass {
 	}
 	
 	public Window(String name, int width, int height) {
-		this(jniCreate(name, width, height));
+		super(jniCreate(name, width, height));
+		
+		instance = this;
 		
 		if(cache == CacheMode.ON_CREATE) {
 			this.width = width;
@@ -37,7 +48,7 @@ public class Window extends NativeClass {
 		}
 		
 		FontManager.SetScale(new Vector2(width / 32.0f, height / 18.0f));
-		//FontManager.Add(new Font("SourceSansPro", Embedded.DEFAULT_FONT, 32));
+		FontManager.Add(new Font("SourceSansPro", Embedded.DEFAULT_FONT, 32));
 		
 	}
 	

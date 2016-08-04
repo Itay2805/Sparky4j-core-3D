@@ -24,6 +24,12 @@ namespace sp { namespace maths {
 		elements[3 + 3 * 4] = diagonal;
 	}
 
+	mat4::mat4(float* ele)
+	{
+		for (int i = 0; i < 4 * 4; i++)
+			elements[i] = ele[i];
+	}
+
 	mat4 mat4::Identity()
 	{
 		return mat4(1.0f);

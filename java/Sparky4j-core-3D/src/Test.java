@@ -1,20 +1,24 @@
-import sp.app.Window;
 
-public class Test {
+import sp.app.Application;
+
+public class Test extends Application {
 	
-	static {
-		String[] libs = {"FreeImage", "OpenAL32", "SPCore", "SPAudio", "SPFont", "Sparky4j-core"};
+	public static final int WIDTH = 1280;
+	public static final int HEIGHT = 720;
+
+	public Test() {
+		super("Sandbox", WIDTH, HEIGHT);
+	}
+	
+	public void Init() {
+		super.Init();
 		
-		for(String str : libs) {
-			System.loadLibrary(str);
-		}
+		PushLayer(new TestLayer());
 	}
 	
 	public static void main(String[] args) {
-		Window window = new Window("test", 100, 100);
-		while(!window.Closed()) {
-			window.Update();
-		}
+		Test game = new Test();
+		game.Start();
 	}
 	
 }

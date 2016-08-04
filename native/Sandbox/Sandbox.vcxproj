@@ -52,7 +52,8 @@
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Configuration)\Intermediates\$(ProjectName)</IntDir>
-    <TargetExt>.dll</TargetExt>
+    <TargetExt>
+    </TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -96,13 +97,29 @@
   <ItemGroup>
     <ClInclude Include="app\InputManager.h" />
     <ClInclude Include="app\Window.h" />
+    <ClInclude Include="graphics\BatchRenderer2D.h" />
+    <ClInclude Include="graphics\Font.h" />
+    <ClInclude Include="graphics\Renderable2D-impl.h" />
+    <ClInclude Include="graphics\Renderable2D.h" />
+    <ClInclude Include="graphics\Renderer2D.h" />
+    <ClInclude Include="graphics\shaders\Shader.h" />
+    <ClInclude Include="graphics\Texture.h" />
     <ClInclude Include="handle.h" />
     <ClInclude Include="memory.h" />
+    <ClInclude Include="utils\Log.h" />
     <ClInclude Include="wrapper\memory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app\InputManager.cpp" />
     <ClCompile Include="app\Window.cpp" />
+    <ClCompile Include="graphics\BatchRenderer2D.cpp" />
+    <ClCompile Include="graphics\Font.cpp" />
+    <ClCompile Include="graphics\Renderable2D-impl.cpp" />
+    <ClCompile Include="graphics\Renderable2D.cpp" />
+    <ClCompile Include="graphics\Renderer2D.cpp" />
+    <ClCompile Include="graphics\shaders\Shader.cpp" />
+    <ClCompile Include="graphics\Texture.cpp" />
+    <ClCompile Include="utils\Log.cpp" />
     <ClCompile Include="wrapper\memory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
